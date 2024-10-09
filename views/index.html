@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700&display=swap">
+    <script src="../assets/js/main.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h2>
+                <a href="#banner">
+                    <span>The Movie</span> Database
+                </a>
+            </h2>
+            <nav>
+                <div class="menu-flex">
+                    <a href="#now_playing">Now Playing</a>
+                    <a href="#popular">Popular</a>
+                    <a href="#top_rated">Top Rated</a>
+                    <a href="#upcoming">Upcoming</a>
+                </div>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="banner" class="banner">
+            <div class="container">
+                <h1>
+                    The largest <br class="hide-mobile" />
+                    <span>movie database</span> online
+                </h1>
+
+                <h3>
+                    Find your next movie to watch
+                </h3>
+                
+                <a href="#now_playing" class="button">Now</a>
+            </div>
+        </section>
+
+        <section id="now_playing" class="movies-section">
+            <div class="container">
+                <h2>Now Playing</h2>
+                <div class="movies-grid"></div>
+            </div>
+        </section>
+        
+        <section id="popular" class="movies-section">
+            <div class="container">
+                <h2>Popular</h2>
+                <div class="movies-grid"></div>
+            </div>
+        </section>
+        
+        <section id="top_rated" class="movies-section">
+            <div class="container">
+                <h2>Top Rated</h2>
+                <div class="movies-grid"></div>
+            </div>
+        </section>
+        
+        <section id="upcoming" class="movies-section">
+            <div class="container">
+                <h2>Upcoming</h2>
+                <div class="movies-grid"></div>
+            </div>
+        </section>
+        
+        <template id="movie-template">
+            <div class="movie-card">
+                <figure class="img-box">
+                    <img src="" alt="Movie Poster">
+                </figure>
+                <div class="content">
+                    <h3 class="movie-title">Movie Title</h3>
+                    <h4 class="release-date">Release Date</h4>
+                    <h5 class="vote-rating">Vote Rating</h5>
+                    <h5 class="movie-description">Movie Description</h5>
+                </div>
+            </div>
+        </template>
+            
+    </main>
+    <footer>
+        <div class="container">
+            <p>
+                &copy; Casper Nordeidet // KEA Web Development 2024
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
