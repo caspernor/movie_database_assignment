@@ -2,14 +2,28 @@ import API_KEY from './config.js';
 
 const apiKey = API_KEY; // Replace with your own TMDb API key
 
+
+// Nav Bar Buttons
+document.querySelectorAll('nav button').forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.getAttribute('section-target');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+
+// Hamburger Menu
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.createElement('nav');
 mobileNav.classList.add('mobile-nav');
 mobileNav.innerHTML = `
-    <a href="#now_playing">Now Playing</a>
-    <a href="#popular">Popular</a>
-    <a href="#top_rated">Top Rated</a>
-    <a href="#upcoming">Upcoming</a>
+        <button section-target="#now_playing">Now Playing</button>
+        <button section-target="#popular">Popular</button>
+        <button section-target="#top_rated">Top Rated</button>
+        <button section-target="#upcoming">Upcoming</button>
 `;
 
 document.querySelector('.hamburger').appendChild(mobileNav);
@@ -18,6 +32,22 @@ hamburger.addEventListener('click', () => {
     mobileNav.classList.toggle('show')
 })
 
+document.querySelectorAll('.mobile-nav button').forEach(button => {
+    button.addEventListener('click', () => {
+        console.log('click');
+        const targetId = button.getAttribute('section-target');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+                mobileNav.classList.remove('show');
+            }, 300);
+        }
+    });
+});
+
+
+// Fetch movies
 async function fetchAndDisplayMovies(url, sectionId) {
     try {
         const response = await fetch(url);
@@ -30,6 +60,7 @@ async function fetchAndDisplayMovies(url, sectionId) {
     }
 }
 
+// Display movies
 function displayMovies(movies, sectionId) {
     const movieGrid = document.querySelector(`#${sectionId} .movies-grid`);
 
